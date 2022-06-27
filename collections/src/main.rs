@@ -31,6 +31,7 @@ fn main() {
         Text(String),
     }
 
+    // A vector of enums
     let row = vec![
         SpreadsheetCell::Int(3),
         SpreadsheetCell::Float(0.64),
@@ -53,4 +54,18 @@ fn main() {
     }
 
     let mut s = String::new();
+    s.push('c');
+
+    let s1 = String::from("tic");
+    let s2 = String::from("tac");
+    let s3 = String::from("toe");
+    let game = s1 + "-" + &s2 + "-" + &s3;
+    println!("{}", game);
+
+    let intel = String::from("intelligence");
+    // returns first character only
+    // must type a range of indices
+    println!("{}", &intel[0..2]);
+
+    println!("{}", &"my string"[0..5]);
 }
