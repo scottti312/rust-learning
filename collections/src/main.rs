@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::io;
 use std::io::prelude::*;
 
@@ -68,4 +69,10 @@ fn main() {
     println!("{}", &intel[0..2]);
 
     println!("{}", &"my string"[0..5]);
+
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Yellow"), 50);
+    let score = scores.get(&String::from("Blue"));
+    println!("{:?}", score);
 }
