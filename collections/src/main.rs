@@ -7,7 +7,7 @@ use strings::run as stringsrun;
 use vectors::run as vectorsrun;
 
 fn main() {
-    // hashmapsrun();
+    hashmapsrun();
     // vectorsrun();
-    stringsrun();
+    // stringsrun();
 }
