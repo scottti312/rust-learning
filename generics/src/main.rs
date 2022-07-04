@@ -1,3 +1,6 @@
+mod summarizer;
+use summarizer::summ;
+
 fn largest<T: Ord + Copy>(list: &[T]) -> T {
     let mut largest = list[0];
     for &i in list {
@@ -41,4 +44,13 @@ fn main() {
     let char_arr = ['a', 'g', 'c', 'd'];
     println!("{}", largest(&int_arr));
     println!("{}", largest(&char_arr));
+
+    summ();
+    // let tweet = Tweet {
+    //     username: String::from("horse_ebooks"),
+    //     content: String::from("of course, as you probably already know, people"),
+    //     reply: false,
+    //     retweet: false,
+    // };
+    // println!("1 new tweet: {}", tweet.summarize());
 }
