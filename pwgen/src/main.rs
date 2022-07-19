@@ -36,41 +36,56 @@ fn main() {
     if response.trim().eq("y") {
         options += 1;
     }
+    let mut v: Vec<String> = Vec::new();
 
     let lowercase = "abcdefghijklmnopqrstuvwxyz";
     let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let numbers = "0123456789";
     let symbols = "`~!@#$%^&*()-_=+[{]}|;:'/?.>,<]";
 
+    println!("Lowercase letters? (y or n)");
+    io::stdin().read_line(&mut response).unwrap();
+    if response.trim().eq("y") {
+        v.push(lowercase.to_string());
+        options += 1;
+    }
+    response = String::new();
+
+    println!("Uppercase letters? (y or n)");
+    io::stdin().read_line(&mut response).unwrap();
+    if response.trim().eq("y") {
+        v.push(uppercase.to_string());
+        options += 1;
+    }
+    response = String::new();
+
+    println!("Numbers? (y or n)");
+    io::stdin().read_line(&mut response).unwrap();
+    if response.trim().eq("y") {
+        v.push(numbers.to_string());
+        options += 1;
+    }
+    response = String::new();
+
+    println!("Symbols? (y or n)");
+    io::stdin().read_line(&mut response).unwrap();
+    if response.trim().eq("y") {
+        v.push(symbols.to_string());
+        options += 1;
+    }
+
     let mut result = String::new();
     let mut i = 0;
     let mut rng = rand::thread_rng();
 
     while i < pw_length {
-        let char_type = rng.gen_range(1..options + 1);
-        println!("i = {}\nchar_type = {}", i, char_type);
-        if char_type == 1 {
-            let index = rng.gen_range(0..lowercase.len());
-            result.push(lowercase.chars().nth(index).unwrap());
-            println!("pushed!");
-        }
-        if char_type == 2 {
-            let index = rng.gen_range(0..uppercase.len());
-            result.push(uppercase.chars().nth(index).unwrap());
-            println!("pushed!");
-        }
-        if char_type == 3 {
-            let index = rng.gen_range(0..numbers.len());
-            result.push(numbers.chars().nth(index).unwrap());
-            println!("pushed!");
-        }
-        if char_type == 4 {
-            let index = rng.gen_range(0..symbols.len());
-            result.push(symbols.chars().nth(index).unwrap());
-            println!("pushed!");
-        }
+        let char_type = rng.gen_range(0..options);
+        let result_str = &v[char_type];
+        let index = rng.gen_range(0..result_str.len());
+        result.push(result_str.chars().nth(index).unwrap());
         i += 1;
     }
+
     println!("{}", result);
     println!("options: {}", options);
 }
