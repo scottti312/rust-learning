@@ -1,4 +1,4 @@
-use rand::{thread_rng, Rng};
+use rand::Rng;
 use std::io;
 
 fn main() {
@@ -12,39 +12,30 @@ fn main() {
 
     println!("Lowercase letters? (y or n)");
     io::stdin().read_line(&mut response).unwrap();
-    let mut b_lowercase = false;
     if response.trim().eq("y") {
-        b_lowercase = true;
         options += 1;
     }
     response = String::new();
 
     println!("Uppercase letters? (y or n)");
     io::stdin().read_line(&mut response).unwrap();
-    let mut b_uppercase = false;
     if response.trim().eq("y") {
-        b_uppercase = true;
         options += 1;
     }
     response = String::new();
 
     println!("Numbers? (y or n)");
     io::stdin().read_line(&mut response).unwrap();
-    let mut b_numbers = false;
     if response.trim().eq("y") {
-        b_numbers = true;
         options += 1;
     }
     response = String::new();
 
     println!("Symbols? (y or n)");
     io::stdin().read_line(&mut response).unwrap();
-    let mut b_symbols = false;
     if response.trim().eq("y") {
-        b_symbols = true;
         options += 1;
     }
-    response = String::new();
 
     let lowercase = "abcdefghijklmnopqrstuvwxyz";
     let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
